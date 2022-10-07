@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Workouts{% endblock  %}
+{% block content %}
+<h1 class="title pt-5">Your Workouts</h1>
+<div class="gallery">
+  {% comment %} {% for workout in workouts %} {% endcomment %}
+  <a href="">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-square">
+          {% comment %} <img src="{{}}" alt="{{}}" /> {% endcomment %}
+        </figure>
+      </div>
+      <div class="card-header">
+        {% comment %} <p class="card-header-title">{{}}</p> {% endcomment %}
+      </div>
+    </div>
+  </a>
+	{% comment %} {% empty %} {% endcomment %}
+  <article class="message">
+    <div class="message-header">
+      <p>No Workouts Available</p>
+    </div>
+  </article>
+  {% comment %} {% endfor %} {% endcomment %}
+</div>
+{% endblock %}

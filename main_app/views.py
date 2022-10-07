@@ -1,7 +1,5 @@
-import imp
 from django.shortcuts import render
 from django.views import View
-from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 
 # Create your views here.
@@ -9,3 +7,14 @@ from django.views.generic.base import TemplateView
 class Home(TemplateView):
     template_name = "home.html"
 
+
+# Add class for Workouts
+class Workouts(TemplateView):
+    template_name = "workouts_list.html"
+    
+    
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["workouts"] = Workouts
+        return  context

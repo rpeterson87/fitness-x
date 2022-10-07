@@ -11,7 +11,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <title>Fitness-X - {% block title %}{% endblock %}</title> 
     </head>
-    <body >
+    <body>
         <nav class="navbar has-background-danger-dark" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item has-text-white" href="/">Home</a>
@@ -22,7 +22,7 @@
                 </a>
             </div>
             <div class="navbar-menu navbar-start">
-                <a class="navbar-item has-background-danger-dark has-text-white" href="/">Place Holder</a>
+                <a class="navbar-item has-background-danger-dark has-text-white" href="workouts/">Workouts</a>
             </div>
             <div class="navbar-menu navbar-end ">
                 <a class="navbar-item has-background-danger-dark has-text-white" href="/">Place Holder</a>
@@ -37,3 +37,5 @@
     </div>
   </body>
 </html>
+
+{% comment %} {% if wishlist.user.username == user.username %} {% endcomment %}
