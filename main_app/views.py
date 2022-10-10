@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
+from django.views.generic.detail import DetailView
 from .models import Workouts
 
 
@@ -31,3 +32,10 @@ class WorkoutCreate(CreateView):
     fields = ['workout', 'video']
     template_name = "workout_create.html"
     success_url = "/workouts/"
+    
+    
+    
+class WorkoutsDetail(DetailView):
+    model = Workouts
+    template_name = "workouts_detail.html"
+    
