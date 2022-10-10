@@ -1,4 +1,5 @@
 from django.db import models
+from embed_video.fields import EmbedVideoField
 
 # Create your models here.
 
@@ -7,7 +8,7 @@ from django.db import models
 class Workouts(models.Model):
 
     workout = models.CharField(max_length=100)
-    video = models.CharField(max_length=1000)
+    video = EmbedVideoField()
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
