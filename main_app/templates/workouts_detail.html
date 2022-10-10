@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load embed_video_tags %}
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <div class="detail__img">
     {% video workouts.video '100% x 100%'%}
 </div>
@@ -9,12 +10,12 @@
 </div>
 <div class="detail__container">
     <div class="buttons">
-        <a href="{% url 'workout_update' workouts.pk %}" class="button is-info">Update Workout
+        <a href="{% url 'workout_update' workouts.pk %}" class="button is-info">Update Workout <span></span>
             <span class="icon">
                 <i class="fas fa-edit"></i>
             </span>
         </a>
-        <a href="{% url 'workout_delete' workouts.pk %}" class="button is-danger">Delete Workout
+        <a href="{% url 'workout_delete' workouts.pk %}" class="button is-danger">Delete Workout <span></span>
             <span class="icon">
                 <i class="fas fa-trash-alt"></i>
             </span>
