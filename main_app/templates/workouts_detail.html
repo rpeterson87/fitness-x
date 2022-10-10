@@ -5,11 +5,11 @@
     {% video workouts.video '100% x 100%'%}
 </div>
 <div class="detail__name">
-    <h1 class="title">{{workout.workouts}}</h1>
+    <h1 class="title">{{workouts.workout_name}}</h1>
 </div>
 <div class="detail__container">
     <div class="buttons">
-        <a href="" class="button is-info">
+        <a href="{% url 'workout_update' workouts.pk %}" class="button is-info">Update Workout
             <span class="icon">
                 <i class="fas fa-edit"></i>
             </span>
