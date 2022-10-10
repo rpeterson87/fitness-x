@@ -18,14 +18,14 @@
 </form>
 <div class="gallery">
   {% for workout in workouts %}
-  <a href="">
-    <div class="card">      
-          {% video workout.video '100% x 50%'%}
-      <div class="card-header">
+  <div class="card">      
+    {% video workout.video '100% x 85%'%} 
+    <div class="card-header">
+      <a href="{% url 'workouts_detail' workout.pk %}">
         <p class="card-header-title">{{workout.workout}}</p>
+      </a>
       </div>
     </div>
-  </a>
 	{% empty %}
   <article class="message">
     <div class="message-header">
