@@ -7,7 +7,7 @@
 <form class="mb-5" method="get">
   <div class="field has-addons">
     <div class="control">
-      <input class="input" type="text" name="workout" placeholder="workout" />
+      <input class="input" type="text" name="workout_name" placeholder="workout" />
     </div>
     <div class="control">
       <input class="button has-background-danger-dark has-text-white" type="submit" value="Search" />
@@ -17,12 +17,12 @@
   <a class="button is-dark" href="{% url 'workout_create' %}">Add Workout</a>
 </form>
 <div class="gallery">
-  {% for workout in workouts %}
+  {% for workout in workout_name %}
   <div class="card">      
     {% video workout.video '100% x 85%'%} 
     <div class="card-header">
       <a href="{% url 'workouts_detail' workout.pk %}">
-        <p class="card-header-title">{{workout.workout}}</p>
+        <p class="card-header-title">{{workout.workout_name}}</p>
       </a>
       </div>
     </div>
