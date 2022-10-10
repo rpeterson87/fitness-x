@@ -1,27 +1,43 @@
 {% extends 'base.html' %}
 {% block title %}Workouts{% endblock  %}
 {% block content %}
-<h1 class="title pt-5">Your Workouts</h1>
+<h1 class="title pt-5">Workouts</h1>
+<h1 class="title pt-5">{{header}}</h1>
+<form class="mb-5" method="get">
+  <div class="field has-addons">
+    <div class="control">
+      <input class="input" type="text" name="workout" placeholder="workout" />
+    </div>
+    <div class="control">
+      <input class="button has-background-danger-dark has-text-white" type="submit" value="Search" />
+    </div>
+  </div>
+  <a class="button is-dark" href="{% url 'workouts_list' %}">Clear Search</a>
+</form>
 <div class="gallery">
-  {% comment %} {% for workout in workouts %} {% endcomment %}
+  {% for workout in workouts %}
   <a href="">
     <div class="card">
       <div class="card-image">
         <figure class="image is-square">
-          {% comment %} <img src="{{}}" alt="{{}}" /> {% endcomment %}
+          <video width="320" height="240" src="{{video}}" controls>
+            <source src="movie.mp4" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+          </video>
         </figure>
       </div>
       <div class="card-header">
-        {% comment %} <p class="card-header-title">{{}}</p> {% endcomment %}
+        <p class="card-header-title">{{workout}}</p>
       </div>
     </div>
   </a>
-	{% comment %} {% empty %} {% endcomment %}
+	{% empty %}
   <article class="message">
     <div class="message-header">
       <p>No Workouts Available</p>
     </div>
   </article>
-  {% comment %} {% endfor %} {% endcomment %}
+  {% endfor %}
 </div>
 {% endblock %}

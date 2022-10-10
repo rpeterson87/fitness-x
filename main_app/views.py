@@ -12,7 +12,17 @@ class Home(TemplateView):
 # Add class for Workouts
 class WorkoutsList(TemplateView):
     template_name = "workouts_list.html"
-    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        workout = self.request.GET.get("workout")
+        if workout != None:
+            context["artists"] = Workouts.objects.filter(workout__icontains=workout)
+            context["header"] = f"Searching for {workout}"
+        else:
+            context["workouts"] = Workouts.objects.all()   
+            context["header"] = f"Searching for {workout}"
+        return context
+        
     
     
     # def get_context_data(self, **kwargs):
