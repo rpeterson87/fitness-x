@@ -33,7 +33,7 @@ class WorkoutsList(TemplateView):
             context["header"] = f"Searching for {workout_name}"
         return context
     
-# @method_decorator(login_required, name='dispatch')        
+@method_decorator(login_required, name='dispatch')        
 class WorkoutCreate(CreateView):
     model = Workouts
     fields = ['workout_name', 'video']

@@ -23,7 +23,7 @@
     </div>
     <div class="detail__songs mb-5">
         <h3 class="title is-3">Exercise Info</h3>
-
+    {% if workouts.user.username == user.username %}
         {% for exercise in workouts.workouts.all %}
             <div class="song">
                 <ul>
@@ -35,7 +35,7 @@
                 </ul>
                 
             </div>
-        {% empty %}
+            {% empty %}
             <article class="message">
                 <div class="message-header">
                     <p>No Workout Data Available</p>
@@ -44,6 +44,8 @@
 
         {% endfor %}
     </div>
+    {% endif %}
+    
     <form class="mb-5" action="{% url 'exercise_create' workouts.pk %}" method="post">
         {% csrf_token %}
         <div class="field has-addons">

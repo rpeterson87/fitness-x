@@ -25,31 +25,30 @@
                 <a class="navbar-item has-background-danger-dark has-text-white" href="/workouts">Workouts</a>
             </div>
             {% if user.is_superuser %}
-            <div class="navbar-menu navbar-start">
-                    <span class="navbar-item has-background-danger-dark has-text-white">Admin: {{user.username}}</span>
-                <div class="navbar-menu navbar-start">
-                    <a class="navbar-item has-background-danger-dark has-text-white" href="/admin">Admin</a>
-                </div>
-                <div class="navbar-menu navbar-start">
+            <div class="navbar-menu navbar-end">
+                    <span class="navbar-item has-background-danger-dark has-text-white">
+                        <a class="navbar-item has-background-danger-dark has-text-white" href="/admin">Admin: </a>{{user.username}}
+                    </span>
+                <div class="navbar-menu navbar-end">
                     <a class="navbar-item has-background-danger-dark has-text-white" href="/">Place Holder</a>
                 </div>
-                <div class="navbar-menu navbar-start">
+                <div class="navbar-menu navbar-end">
                     <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'logout' %}">Logout</a>
                 </div>
-                <div class="navbar-menu navbar-start">
+                <div class="navbar-menu navbar-end">
                     <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'workout_create' %}">Add Workout</a>
                 </div>
                 {% elif user.is_authenticated %}
                 <div class="navbar-menu navbar-end">
                     <span class="navbar-item">Welcome: {{user.username}}</span>
                 </div>
-                <div class="navbar-menu navbar-start">
+                <div class="navbar-menu navbar-end">
                     <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'logout' %}">Logout</a>
                 </div>
-                <div class="navbar-menu navbar-start">
+                <div class="navbar-menu navbar-end">
                     <a class="navbar-item has-background-danger-dark has-text-white" href="/workouts/create">Create New Snake</a>
                 </div>
-                <div class="navbar-menu navbar-start">
+                <div class="navbar-menu navbar-end">
                     <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'workout_create' %}">Add Workout</a>
                 </div>
             </div>
@@ -72,4 +71,3 @@
   </body>
 </html>
 
-{% comment %} {% if wishlist.user.username == user.username %} {% endcomment %}
