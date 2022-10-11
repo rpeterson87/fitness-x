@@ -1,5 +1,8 @@
 from django.urls import path
 from . import views
+from .views import profile
+
+
  
 
 
@@ -11,5 +14,7 @@ urlpatterns = [
     path('workouts/<int:pk>/update', views.WorkoutUpdate.as_view(), name="workout_update"),
     path('workouts/<int:pk>/delete', views.WorkoutDelete.as_view(), name="workout_delete"),
     path('workouts/<int:pk>/exercise/new/', views.ExerciseCreate.as_view(), name="exercise_create"),
-    path('accounts/signup/', views.Signup.as_view(), name="signup")
-]
+    path('accounts/signup/', views.Signup.as_view(), name="signup"),
+    path('profile/', profile, name='profile'),
+    path('register/', views.RegisterView.as_view(), name='register'),
+] 

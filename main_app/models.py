@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from embed_video.fields import EmbedVideoField
 from django.contrib.auth.models import User
@@ -21,6 +22,14 @@ class Workouts(models.Model):
     
 
 # Need to add model for Users 
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    bio = models.TextField(default=1) 
+    
+    def __str__(self):
+        return self.user.username
+    
 
 
 # Need to add model for exercises

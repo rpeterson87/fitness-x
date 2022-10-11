@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block content %}
+{% block title %}Profile Page{% endblock title %}
+<div class="content-section">
+  <div class="media">
+    <img
+      class="rounded-circle account-img"
+      src="{{ user.profile.image }}"
+    />
+    <div class="media-body">
+        <div class="row my-3 p-3">
+            <h1>This is the profile page for {{user.username}}</h1>
+        </div>
+      <p class="text-secondary">{{ user.email }}</p>
+    </div>
+  </div>
+  <!-- FORM HERE -->
+</div>
+{% endblock content %}
