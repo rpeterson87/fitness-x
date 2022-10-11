@@ -1,4 +1,5 @@
-from urllib import request
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.views import View
@@ -7,6 +8,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 # Models
 from .models import Workouts, Exercises
+# Auth
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
 # Create your views here.
@@ -22,21 +26,25 @@ class WorkoutsList(TemplateView):
         context = super().get_context_data(**kwargs)
         workout_name = self.request.GET.get("workout_name")
         if workout_name != None:
-            context["workout_name"] = Workouts.objects.filter(workout_name__icontains=workout_name)
+            context["workout_name"] = Workouts.objects.filter(workout_name__icontains=workout_name, user=self.request.user)
             context["header"] = f"Searching for {workout_name}"
         else:
             context["workout_name"] = Workouts.objects.all()   
             context["header"] = f"Searching for {workout_name}"
         return context
     
-        
+# @method_decorator(login_required, name='dispatch')        
 class WorkoutCreate(CreateView):
     model = Workouts
     fields = ['workout_name', 'video']
     template_name = "workout_create.html"
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(WorkoutCreate, self).form_valid(form)
+    
     def get_success_url(self):
         return reverse('workouts_detail', kwargs={'pk': self.object.pk})
-    
     
     
     
@@ -76,6 +84,23 @@ class ExerciseCreate(View):
             workout=workout
             )
         return redirect('workouts_detail', pk=pk)
+    
+    
+class Signup(View):
+    def get(self, request):
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "registration/signup.html", context)
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("workouts_list")
+        else:
+            context = {"form": form}
+            return render(request, "registration/signup.html", context)
+
         
     
     
