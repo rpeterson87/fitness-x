@@ -21,6 +21,74 @@
             </span>
         </a>
     </div>
+    <div class="detail__songs mb-5">
+        <h3 class="title is-3">Exercise Info</h3>
+
+        {% for exercise in workouts.workouts.all %}
+            <div class="song">
+                <ul>
+                    <li>{{exercise.created|date}}</li>
+                    <li>Sets:{{exercise.sets}}</li>
+                    <li>Reps:{{exercise.reps}}</li>
+                    <li>Weight:{{exercise.weight}}</li>
+                    <li>Notes: {{exercise.notes}}</li>
+                </ul>
+                
+            </div>
+        {% empty %}
+            <article class="message">
+                <div class="message-header">
+                    <p>No Workout Data Available</p>
+                </div>
+            </article>
+
+        {% endfor %}
+    </div>
+    <form class="mb-5" action="{% url 'exercise_create' workouts.pk %}" method="post">
+        {% csrf_token %}
+        <div class="field has-addons">
+            <div class="control">
+                <input 
+                class="input"
+                type="text"
+                name="sets"
+                placeholder="Sets"
+                required
+                />
+            </div>
+            <div class="control">
+                <input 
+                class="input"
+                type="number"
+                name="reps"
+                placeholder="Reps"
+                required
+                />
+            </div>
+            <div class="control">
+                <input 
+                class="input"
+                type="number"
+                name="weight"
+                placeholder="Weight"
+                required
+                />
+            </div>
+            <div class="control">
+                <input 
+                class="input"
+                type="text"
+                name="notes"
+                placeholder="Notes"
+                />
+            </div>
+            <div class="control">
+                <input class="button is-primary" type="submit" value="Add to Workout">
+            </div>
+        </div>
+
+    </form>
+<!--  above about section  -->
     {% comment %} <div class="detail__about">
         <h4 class="title is-4">About</h4>
         <p>{{artist.bio}}</p>
