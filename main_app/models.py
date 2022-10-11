@@ -1,5 +1,6 @@
 from django.db import models
 from embed_video.fields import EmbedVideoField
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -10,6 +11,7 @@ class Workouts(models.Model):
     workout_name = models.CharField(max_length=100)
     video = EmbedVideoField()
     created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     
     def __str__(self):
         return self.workout_name
