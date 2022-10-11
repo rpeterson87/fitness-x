@@ -1,10 +1,12 @@
+from urllib import request
 from django.urls import reverse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
-from .models import Workouts
+# Models
+from .models import Workouts, Exercises
 
 
 # Create your views here.
@@ -43,6 +45,7 @@ class WorkoutsDetail(DetailView):
     template_name = "workouts_detail.html"
     
     
+    
 class WorkoutUpdate(UpdateView):
     model = Workouts
     fields = ['workout_name', 'video']
@@ -56,4 +59,25 @@ class WorkoutDelete(DeleteView):
     template_name = "workout_delete_confirmation.html"
     success_url = "/workouts/"
 
+
+class ExerciseCreate(View):
+    
+    def post(self, request, pk):
+        sets = request.POST.get("sets")
+        reps = request.POST.get("reps")
+        weight = request.POST.get("weight")
+        notes = request.POST.get("notes")
+        workout = Workouts.objects.get(pk=pk)
+        Exercises.objects.create(
+            sets=sets,
+            reps=reps,
+            weight=weight,
+            notes=notes,
+            workout=workout
+            )
+        return redirect('workouts_detail', pk=pk)
+        
+    
+    
+    
     

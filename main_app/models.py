@@ -30,7 +30,7 @@ class Exercises(models.Model):
     performed = models.DateTimeField(auto_now_add=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
-    exercise = models.ForeignKey(Workouts, on_delete=models.CASCADE, related_name="workouts")
+    workout = models.ForeignKey(Workouts, on_delete=models.CASCADE, related_name="workouts")
     # created_by models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
