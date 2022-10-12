@@ -112,6 +112,7 @@ class RegisterView(View):
     form_class = RegisterForm
     initial = {'key': 'value'}
     template_name = 'registration/signup.html'
+    
 
     def get(self, request, *args, **kwargs):
         form = self.form_class(initial=self.initial)
