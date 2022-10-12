@@ -24,7 +24,7 @@ class Workouts(models.Model):
 # Need to add model for Users 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics/')
     bio = models.TextField(default=1) 
     
     def __str__(self):
