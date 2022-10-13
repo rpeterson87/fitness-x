@@ -70,14 +70,20 @@ class WorkoutUpdate(UpdateView):
 class ExerciseUpdate(UpdateView):
     model = Exercises
     fields = ['sets', 'reps', 'weight', 'notes']
-    template_name = "workout_update.html"
+    template_name = "exercise_update.html"
     def get_success_url(self):
-        return reverse('workouts_detail', kwargs={'pk': self.object.pk})
+        return reverse('workouts_detail', kwargs={'pk': self.object.workout.pk})
     
     
 class WorkoutDelete(DeleteView):
     model = Workouts
-    template_name = "workout_delete_confirmation.html"
+    template_name = "exercise_delete_confirmation.html"
+    success_url = "/workouts/"
+
+
+class ExerciseDelete(DeleteView):
+    model = Workouts
+    template_name = "exercise_delete_confirmation.html"
     success_url = "/workouts/"
 
 
@@ -97,6 +103,23 @@ class ExerciseCreate(View):
             workout=workout
             )
         return redirect('workouts_detail', pk=pk)
+
+# class ExerciseCreate(View):
+    
+#     def post(self, request, pk):
+#         sets = request.POST.get("sets")
+#         reps = request.POST.get("reps")
+#         weight = request.POST.get("weight")
+#         notes = request.POST.get("notes")
+#         workout = Workouts.objects.get(pk=pk)
+#         Exercises.objects.create(
+#             sets=sets,
+#             reps=reps,
+#             weight=weight,
+#             notes=notes,
+#             workout=workout
+#             )
+#         return redirect('workouts_detail', pk=pk)
     
     
 # class Signup(View):

@@ -33,8 +33,17 @@
                     <li>Weight:{{exercise.weight}}</li>
                     <li>Notes: {{exercise.notes}}</li>
                 </ul>
-                
             </div>
+            <a href="{% url 'exercise_update' workouts.pk exercise.pk %}" class="button is-info">Update exercise <span></span>
+                <span class="icon">
+                    <i class="fas fa-edit"></i>
+                </span>
+            </a>
+            <a href="{% url 'workout_delete' exercise.pk %}" class="button is-danger">Delete Workout <span></span>
+                <span class="icon">
+                    <i class="fas fa-trash-alt"></i>
+                </span>
+            </a>
             {% empty %}
             <article class="message">
                 <div class="message-header">
@@ -88,7 +97,6 @@
                 <input class="button is-primary" type="submit" value="Add to Workout">
             </div>
         </div>
-
     </form>
 <!--  above about section  -->
     {% comment %} <div class="detail__about">
