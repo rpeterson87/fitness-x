@@ -4,25 +4,23 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="{% static 'styles/main.css' %}" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <script src="{% static 'scripts/main.js' %}" defer></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <title>Fitness-X - {% block title %}{% endblock %}</title> 
+        <title>Fitness-X {% block title %} {% endblock %}</title> 
     </head>
     <body>
         <nav class="navbar has-background-danger-dark" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <a class="navbar-item has-text-white" href="/">Home</a>
+                <a class="navbar-item " href="/"><img src="https://i.imgur.com/NtUv99Z.png" alt="Fittness-X"></a>
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
                     <span class="has-text-white" aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
-            </div>
-            <div class="navbar-menu navbar-start">
-                <a class="navbar-item has-background-danger-dark has-text-white" href="/workouts">Workouts</a>
             </div>
             {% if user.is_superuser %}
             <div class="navbar-menu navbar-end">
@@ -30,38 +28,57 @@
                     <a class="navbar-item has-background-danger-dark has-text-white" href="/admin">Admin:{{user.username}}</a>
                 </div>
                 <div class="navbar-menu navbar-end">
-                    <a class="navbar-item has-background-danger-dark has-text-white" href="/">Place Holder</a>
+                    <a class="navbar-item has-background-danger-dark has-text-white" href="/profile">Profile</a>
                 </div>
                 <div class="navbar-menu navbar-end">
-                    <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'logout' %}">Logout</a>
+                    <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'logout' %}" >Logout</a>
+                </div>
+                <div class="navbar-menu navbar-start">
+                    <a class="navbar-item has-background-danger-dark has-text-white" href="/workouts">Workouts</a>
                 </div>
                 <div class="navbar-menu navbar-end">
                     <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'workout_create' %}">Add Workout</a>
                 </div>
             {% elif user.is_authenticated %}
                 <div class="navbar-menu navbar-end">
-                    <span class="navbar-item">Welcome: {{user.username}}</span>
+                    <span class="navbar-item has-background-danger-dark has-text-white">Welcome: {{user.username}}</span>
                 </div>
                 <div class="navbar-menu navbar-end">
-                    <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'logout' %}">Logout</a>
+                <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'profile' %}">Profile</a>
                 </div>
-                <div class="navbar-menu navbar-end">
-                    <a class="navbar-item has-background-danger-dark has-text-white" href="/workouts/create">Create New Snake</a>
+                <div class="navbar-menu navbar-start">
+                    <a class="navbar-item has-background-danger-dark has-text-white" href="/workouts">Workouts</a>
                 </div>
                 <div class="navbar-menu navbar-end">
                     <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'workout_create' %}">Add Workout</a>
                 </div>
-            </div>
-            {% else %}
-            <div class="navbar-menu navbar-start">
-                    <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'login' %}">Log In</a>
-                <div class="navbar-menu navbar-start">
-                    <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'signup' %}">Sign Up</a>
+                <div class="navbar-menu navbar-end">
+                    <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'logout' %}" >Logout</a>
                 </div>
             </div>
+            {% else %}
+            <div class="navbar-menu navbar-end">
+                    <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'login' %}">Log In</a>
+                </div>
+                <div class="navbar-menu navbar-end">
+                    <a class="navbar-item has-background-danger-dark has-text-white" href="{% url 'register' %}">Sign Up</a>
+                </div>
+                <div class="navbar-menu navbar-end">
+                    <a class="navbar-item has-background-danger-dark has-text-white" href="/workouts">Workouts</a>
+                </div>
             {% endif %}
         </nav>
         <div class="container">
+            {% if messages %}
+          <div class="alert alert-dismissible" role="alert">
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endif %}
 
             {% block content %}{% endblock %}
 
