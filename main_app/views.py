@@ -77,14 +77,17 @@ class ExerciseUpdate(UpdateView):
     
 class WorkoutDelete(DeleteView):
     model = Workouts
-    template_name = "exercise_delete_confirmation.html"
+    template_name = "workout_delete_confirmation.html"
     success_url = "/workouts/"
 
 
 class ExerciseDelete(DeleteView):
-    model = Workouts
+    model = Exercises
     template_name = "exercise_delete_confirmation.html"
-    success_url = "/workouts/"
+    
+    def get_success_url(self):
+        return reverse('workouts_detail', kwargs={'pk': self.object.workout.pk})
+    
 
 
 class ExerciseCreate(View):
