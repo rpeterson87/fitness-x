@@ -65,6 +65,14 @@ class WorkoutUpdate(UpdateView):
     template_name = "workout_update.html"
     def get_success_url(self):
         return reverse('workouts_detail', kwargs={'pk': self.object.pk})
+
+
+class ExerciseUpdate(UpdateView):
+    model = Exercises
+    fields = ['sets', 'reps', 'weight', 'notes']
+    template_name = "workout_update.html"
+    def get_success_url(self):
+        return reverse('workouts_detail', kwargs={'pk': self.object.pk})
     
     
 class WorkoutDelete(DeleteView):
