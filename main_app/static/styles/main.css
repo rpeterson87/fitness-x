@@ -87,14 +87,16 @@ iframe{
   overflow: hidden;
   margin-bottom: 1.5em;
   border-radius: 5px;
+  align-items: center;
 }
 
 #home-vid{
-  position: absolute;
+  position: relative;
   width: 100vw;
   height: 100vh;
-  top: -33%;
+  /* top: -33%; */
   overflow: hidden;
+
 }
 
 .home-iframe::after {
