@@ -138,3 +138,8 @@ MEDIA_URL = '/main_app/media/'
 
 LOGIN_REDIRECT_URL = '/workouts/'
 LOGOUT_REDIRECT_URL = '/logout/'
+
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())

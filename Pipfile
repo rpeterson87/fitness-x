@@ -9,6 +9,9 @@ psycopg2-binary = "*"
 psycopg2 = "*"
 django-embed-video = "*"
 pillow = "*"
+django-heroku = "*"
+gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 
