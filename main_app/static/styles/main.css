@@ -89,9 +89,10 @@ iframe{
 }
 #home-vid{
   position: absolute;
-  width: 100vw;
+  width: 100vw
+  ;
   height: 100vh;
-  top: -85%;
+  top: -15%;
   overflow: hidden;
 }
 

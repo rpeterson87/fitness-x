@@ -52,13 +52,13 @@ class WorkoutCreate(CreateView):
         return reverse('workouts_detail', kwargs={'pk': self.object.pk})
     
     
-# @method_decorator(login_required, name='dispatch')   
+@method_decorator(login_required, name='dispatch')   
 class WorkoutsDetail(DetailView):
     model = Workouts
     template_name = "workouts_detail.html"
     
     
-   
+@method_decorator(login_required, name='dispatch')   
 class WorkoutUpdate(UpdateView):
     model = Workouts
     fields = ['workout_name', 'video']
@@ -66,7 +66,7 @@ class WorkoutUpdate(UpdateView):
     def get_success_url(self):
         return reverse('workouts_detail', kwargs={'pk': self.object.pk})
 
-
+@method_decorator(login_required, name='dispatch')
 class ExerciseUpdate(UpdateView):
     model = Exercises
     fields = ['sets', 'reps', 'weight', 'notes']
@@ -74,13 +74,13 @@ class ExerciseUpdate(UpdateView):
     def get_success_url(self):
         return reverse('workouts_detail', kwargs={'pk': self.object.workout.pk})
     
-    
+@method_decorator(login_required, name='dispatch')   
 class WorkoutDelete(DeleteView):
     model = Workouts
     template_name = "workout_delete_confirmation.html"
     success_url = "/workouts/"
 
-
+@method_decorator(login_required, name='dispatch')
 class ExerciseDelete(DeleteView):
     model = Exercises
     template_name = "exercise_delete_confirmation.html"
@@ -89,7 +89,7 @@ class ExerciseDelete(DeleteView):
         return reverse('workouts_detail', kwargs={'pk': self.object.workout.pk})
     
 
-
+@method_decorator(login_required, name='dispatch')
 class ExerciseCreate(View):
     
     def post(self, request, pk):
