@@ -1,131 +1,170 @@
 body {
-    background-color: #121212;
-    color: #ffffff;
-    min-height: 100vh;
-  }
-  
-  h1,
-  h2,
-  h3 {
-    color: #ffffff;
-  }
-  
-  .container {
-    padding: 40px;
-    padding-right: 0;
-  }
-  
-  .title {
-    color: #ffffff;
-  }
-  
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    justify-content: center;
-    gap: 50px;
-  }
-  
-  .gallery .card {
-    transition: 0.1s linear;
-  }
- 
-  .gallery .card:hover {
-    transform: scale(1.1);
-    z-index: 10;
-  }
-  .buttons{
-    position: relative;
-    z-index: 5;
-    bottom: 100px;
-  }
+  background-color: #121212;
+  color: #ffffff;
+  min-height: 100vh;
+}
 
-  p {
-    font-size: 11px;
-  }
-  .card-header{
-    justify-content: center;
-    position: relative;
-    bottom: 1%;
-  }
-  
-  .detail__vid {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 400px;
-    background-color: #000000;
-    overflow: hidden;
-  }
-  
-  .detail__vid::after {
-    background-image: linear-gradient(transparent 60%, #1f1f1f);
-    position: absolute;
-    top: 25%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-  }
-  
-  img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    object-position: top;
-  }
+h1,
+h2,
+h3 {
+  color: #ffffff;
+}
 
-  .account-img{
-    width: 25%;
-  }
+.container {
+  padding: 40px;
+  padding-right: 0;
+}
 
-  iframe {
-    max-width: 100%;
-  }
+.title {
+  color: #ffffff;
+}
 
-  
-  .detail__name {
-    position: relative;
-    z-index: 5;
-    top: 400px;
-    margin-top: 0;
-    color: rgb(254, 254, 254);
-  }
-  
-  .detail__container {
-    margin-top: 500px;
-  }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  justify-content: center;
+  gap: 50px;
+}
 
-  .detail__workout {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 25px;
+.gallery .card {
+  transition: 0.1s linear;
+}
+
+.gallery .card:hover {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+.buttons {
+  position: relative;
+  z-index: 5;
+  bottom: 100px;
+}
+
+p {
+  font-size: 11px;
+}
+
+.card-header {
+  justify-content: center;
+  position: relative;
+  bottom: 1%;
+}
+
+.detail__vid {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 400px;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.detail__vid::after {
+  background-image: linear-gradient(transparent 60%, #1f1f1f);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 5;
+}
+iframe{
+  border-radius: 5px;
+}
+
+.home-iframe {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  width: 92%;
+  height: 400px;
+  background-color: #000000;
+  overflow: hidden;
+  margin-bottom: 1.5em;
+  border-radius: 5px;
+}
+#home-vid{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: -15%;
+  overflow: hidden;
+}
+
+.home-iframe::after {
+  content: "";
+  background-image: linear-gradient(transparent 80%, #f30404);
+  opacity: 50%;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+
+
+img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.account-img {
+  width: 25%;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+
+.detail__name {
+  position: relative;
+  z-index: 5;
+  top: 400px;
+  margin-top: 0;
+  color: rgb(254, 254, 254);
+}
+
+.detail__container {
+  margin-top: 500px;
+}
+
+.detail__workout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
 }
 
 .exercise {
-    width: 100%;
-    padding: 10px;
-    display: grid;
-    grid-template-columns: 0.1fr 3fr 1fr;
-    border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 0.1fr 3fr 1fr;
+  border-radius: 5px;
 }
 
 .exercise:hover {
-    background-color: hsla(0, 0%, 100%, 0.1);
-    cursor: pointer;
+  background-color: hsla(0, 0%, 100%, 0.1);
+  cursor: pointer;
 }
 
-.trash{
+.trash {
   max-width: 5%;
 }
 
-.link{
+.link {
   color: #000000;
 }
 
-.link:hover{
-  color:#fe0000
+.link:hover {
+  color: #fe0000
 }
-
