@@ -134,7 +134,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'main_app/static')]
 
 # For Image uploads
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/main_app/media/'
 
 LOGIN_REDIRECT_URL = '/workouts/'
 LOGOUT_REDIRECT_URL = '/logout/'

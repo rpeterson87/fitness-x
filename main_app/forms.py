@@ -70,8 +70,9 @@ class LoginForm(AuthenticationForm):
                                    'placeholder': 'Password',
                                    'class': 'form-control',
                                    'data-toggle': 'password',
-                                   'id': 'password',
+                                   'id': 'password-field',
                                    'name': 'password',
+                                   
                                }))       
     
     remember_me = forms.BooleanField(required=False)

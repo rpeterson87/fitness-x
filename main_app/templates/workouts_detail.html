@@ -2,30 +2,31 @@
 {% load embed_video_tags %}
 {% block content %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<div class="detail__img">
+<div class="detail__vid">
     {% video workouts.video '100% x 100%'%}
 </div>
 <div class="detail__name">
-    <h1 class="title">{{workouts.workout_name}}</h1>
+    <h1 class="title has-text-danger-dark">{{workouts.workout_name}}</h1>
 </div>
 <div class="detail__container">
     <div class="buttons">
-        <a href="{% url 'workout_update' workouts.pk %}" class="button is-info">Update Workout <span></span>
+        <a href="{% url 'workout_update' workouts.pk %}" class="button is-dark">Update Workout <span></span>
             <span class="icon">
                 <i class="fas fa-edit"></i>
             </span>
         </a>
-        <a href="{% url 'workout_delete' workouts.pk %}" class="button is-danger">Delete Workout <span></span>
+        <a href="{% url 'workout_delete' workouts.pk %}" class="button has-background-danger-dark has-text-white">Delete Workout <span></span>
             <span class="icon">
                 <i class="fas fa-trash-alt"></i>
             </span>
         </a>
     </div>
-    <div class="detail__songs mb-5">
-        <h3 class="title is-3">Exercise Info</h3>
+    <div class="detail__workout ">
+        <h3 class="title is-3 has-text-danger-dark">Exercise Info</h3>
     {% if workouts.user.username == user.username %}
         {% for exercise in workouts.workouts.all %}
-            <div class="song">
+            <div class="exercise">
+                <a href="{% url 'exercise_update' workouts.pk exercise.pk %}" class="has-text-white">
                 <ul>
                     <li>{{exercise.created|date}}</li>
                     <li>Sets:{{exercise.sets}}</li>
@@ -33,13 +34,9 @@
                     <li>Weight:{{exercise.weight}}</li>
                     <li>Notes: {{exercise.notes}}</li>
                 </ul>
-            </div>
-            <a href="{% url 'exercise_update' workouts.pk exercise.pk %}" class="button is-info">Update exercise <span></span>
-                <span class="icon">
-                    <i class="fas fa-edit"></i>
-                </span>
             </a>
-            <a href="{% url 'exercise_delete' exercise.pk %}" class="button is-danger">Delete Workout <span></span>
+            </div>
+            <a href="{% url 'exercise_delete' exercise.pk %}" class="button trash has-background-danger-dark has-text-white">
                 <span class="icon">
                     <i class="fas fa-trash-alt"></i>
                 </span>
@@ -94,7 +91,7 @@
                 />
             </div>
             <div class="control">
-                <input class="button is-primary" type="submit" value="Add to Workout">
+                <input class="button is-dark " type="submit" value="Add to Workout">
             </div>
         </div>
     </form>

@@ -21,7 +21,7 @@ body {
   
   .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     justify-content: center;
     gap: 50px;
   }
@@ -34,25 +34,35 @@ body {
     transform: scale(1.1);
     z-index: 10;
   }
+  .buttons{
+    position: relative;
+    z-index: 5;
+    bottom: 100px;
+  }
 
   p {
-    font-size: 12px;
+    font-size: 11px;
+  }
+  .card-header{
+    justify-content: center;
+    position: relative;
+    bottom: 1%;
   }
   
-  .detail__img {
+  .detail__vid {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    height: 500px;
-    background-color: #ffffff;
+    height: 400px;
+    background-color: #000000;
     overflow: hidden;
   }
   
-  .detail__img::after {
+  .detail__vid::after {
     background-image: linear-gradient(transparent 60%, #1f1f1f);
     position: absolute;
-    top: 0;
+    top: 25%;
     left: 0;
     width: 100%;
     height: 100%;
@@ -66,26 +76,35 @@ body {
     object-position: top;
   }
 
+  .account-img{
+    width: 25%;
+  }
+
+  iframe {
+    max-width: 100%;
+  }
+
   
   .detail__name {
-    position: absolute;
+    position: relative;
     z-index: 5;
     top: 400px;
-    margin-top: 10%;
-    color: aqua;
+    margin-top: 0;
+    color: rgb(254, 254, 254);
   }
   
   .detail__container {
     margin-top: 500px;
   }
 
-  .detail__songs {
+  .detail__workout {
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-bottom: 25px;
 }
 
-.song {
+.exercise {
     width: 100%;
     padding: 10px;
     display: grid;
@@ -93,7 +112,20 @@ body {
     border-radius: 5px;
 }
 
-.song:hover {
+.exercise:hover {
     background-color: hsla(0, 0%, 100%, 0.1);
     cursor: pointer;
 }
+
+.trash{
+  max-width: 5%;
+}
+
+.link{
+  color: #000000;
+}
+
+.link:hover{
+  color:#fe0000
+}
+

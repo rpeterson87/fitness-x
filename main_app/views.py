@@ -31,14 +31,14 @@ class WorkoutsList(TemplateView):
         context = super().get_context_data(**kwargs)
         workout_name = self.request.GET.get("workout_name")
         if workout_name != None:
-            context["workout_name"] = Workouts.objects.filter(workout_name__icontains=workout_name, user=self.request.user)
+            context["workout_name"] = Workouts.objects.filter(workout_name__icontains=workout_name)
             context["header"] = f"Searching for {workout_name}"
         else:
             context["workout_name"] = Workouts.objects.all()   
             context["header"] = f"Searching for {workout_name}"
         return context
     
-@method_decorator(login_required, name='dispatch')        
+@method_decorator(login_required, name='dispatch')       
 class WorkoutCreate(CreateView):
     model = Workouts
     fields = ['workout_name', 'video']
@@ -52,13 +52,13 @@ class WorkoutCreate(CreateView):
         return reverse('workouts_detail', kwargs={'pk': self.object.pk})
     
     
-    
+# @method_decorator(login_required, name='dispatch')   
 class WorkoutsDetail(DetailView):
     model = Workouts
     template_name = "workouts_detail.html"
     
     
-    
+   
 class WorkoutUpdate(UpdateView):
     model = Workouts
     fields = ['workout_name', 'video']
@@ -106,24 +106,6 @@ class ExerciseCreate(View):
             workout=workout
             )
         return redirect('workouts_detail', pk=pk)
-
-# class ExerciseCreate(View):
-    
-#     def post(self, request, pk):
-#         sets = request.POST.get("sets")
-#         reps = request.POST.get("reps")
-#         weight = request.POST.get("weight")
-#         notes = request.POST.get("notes")
-#         workout = Workouts.objects.get(pk=pk)
-#         Exercises.objects.create(
-#             sets=sets,
-#             reps=reps,
-#             weight=weight,
-#             notes=notes,
-#             workout=workout
-#             )
-#         return redirect('workouts_detail', pk=pk)
-    
     
 # class Signup(View):
 #     def get(self, request):
