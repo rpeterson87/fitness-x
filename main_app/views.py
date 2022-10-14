@@ -12,8 +12,6 @@ from .forms import RegisterForm, LoginForm, UpdateUserForm, UpdateProfileForm
 # Auth
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, PasswordChangeView
 
 
@@ -106,21 +104,6 @@ class ExerciseCreate(View):
             workout=workout
             )
         return redirect('workouts_detail', pk=pk)
-    
-# class Signup(View):
-#     def get(self, request):
-#         form = UserCreationForm()
-#         context = {"form": form}
-#         return render(request, "registration/signup.html", context)
-#     def post(self, request):
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             login(request, user)
-#             return redirect("workouts_list")
-#         else:
-#             context = {"form": form}
-#             return render(request, "registration/signup.html", context)
 
 
 

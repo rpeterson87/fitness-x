@@ -35,11 +35,12 @@ h3 {
   z-index: 10;
 }
 
-.buttons {
+.buttons1 {
   position: relative;
   z-index: 5;
   bottom: 100px;
 }
+
 
 p {
   font-size: 11px;
@@ -87,12 +88,12 @@ iframe{
   margin-bottom: 1.5em;
   border-radius: 5px;
 }
+
 #home-vid{
   position: absolute;
-  width: 100vw
-  ;
+  width: 100vw;
   height: 100vh;
-  top: -15%;
+  top: -33%;
   overflow: hidden;
 }
 

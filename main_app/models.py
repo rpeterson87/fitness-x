@@ -46,5 +46,3 @@ class Exercises(models.Model):
     
     def __str__(self):
         return self.sets
-
-# Need to add a model for embedded videos
