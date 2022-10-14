@@ -31,14 +31,14 @@ class WorkoutsList(TemplateView):
         context = super().get_context_data(**kwargs)
         workout_name = self.request.GET.get("workout_name")
         if workout_name != None:
-            context["workout_name"] = Workouts.objects.filter(workout_name__icontains=workout_name, user=self.request.user)
+            context["workout_name"] = Workouts.objects.filter(workout_name__icontains=workout_name)
             context["header"] = f"Searching for {workout_name}"
         else:
             context["workout_name"] = Workouts.objects.all()   
             context["header"] = f"Searching for {workout_name}"
         return context
     
-@method_decorator(login_required, name='dispatch')        
+@method_decorator(login_required, name='dispatch')       
 class WorkoutCreate(CreateView):
     model = Workouts
     fields = ['workout_name', 'video']
@@ -52,13 +52,13 @@ class WorkoutCreate(CreateView):
         return reverse('workouts_detail', kwargs={'pk': self.object.pk})
     
     
-    
+# @method_decorator(login_required, name='dispatch')   
 class WorkoutsDetail(DetailView):
     model = Workouts
     template_name = "workouts_detail.html"
     
     
-    
+   
 class WorkoutUpdate(UpdateView):
     model = Workouts
     fields = ['workout_name', 'video']
@@ -70,15 +70,24 @@ class WorkoutUpdate(UpdateView):
 class ExerciseUpdate(UpdateView):
     model = Exercises
     fields = ['sets', 'reps', 'weight', 'notes']
-    template_name = "workout_update.html"
+    template_name = "exercise_update.html"
     def get_success_url(self):
-        return reverse('workouts_detail', kwargs={'pk': self.object.pk})
+        return reverse('workouts_detail', kwargs={'pk': self.object.workout.pk})
     
     
 class WorkoutDelete(DeleteView):
     model = Workouts
     template_name = "workout_delete_confirmation.html"
     success_url = "/workouts/"
+
+
+class ExerciseDelete(DeleteView):
+    model = Exercises
+    template_name = "exercise_delete_confirmation.html"
+    
+    def get_success_url(self):
+        return reverse('workouts_detail', kwargs={'pk': self.object.workout.pk})
+    
 
 
 class ExerciseCreate(View):
@@ -97,7 +106,6 @@ class ExerciseCreate(View):
             workout=workout
             )
         return redirect('workouts_detail', pk=pk)
-    
     
 # class Signup(View):
 #     def get(self, request):
