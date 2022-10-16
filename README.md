@@ -11,7 +11,7 @@
  
  Step 1. Build the wire-frame
 
- <img width="400" alt="Screen Shot 2022-08-07 at 8 41 58 PM" src="[https://user-images.githubusercontent.com/9807461/184040251-3f35dc1c-00eb-4852-a521-96bc08db60da.png](https://user-images.githubusercontent.com/9807461/196013216-aff35c59-6212-4f39-9edf-464143282667.png)">
+ <img width="400" alt="Screen Shot 2022-08-07 at 8 41 58 PM" src="[https://user-images.githubusercontent.com/9807461/184040251-3f35dc1c-00eb-4852-a521-96bc08db60da.png]
 
 Step 2. The workout page.
 
