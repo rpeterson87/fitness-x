@@ -11,18 +11,19 @@
  
  Step 1. Build the wire-frame
 
- <img width="400" alt="Screen Shot 2022-08-07 at 8 41 58 PM" src="[https://user-images.githubusercontent.com/9807461/184040251-3f35dc1c-00eb-4852-a521-96bc08db60da.png]
+![Screen Shot 2022-10-14 at 4 48 35 PM](https://user-images.githubusercontent.com/9807461/196013852-920f08c8-6a8a-44ec-9c79-5d44851792fc.png)
 
-Step 2. The workout page.
 
-<a href=![Screen Shot 2022-10-07 at 4 45 12 PM](https://user-images.githubusercontent.com/9807461/196013312-9099ba3e-ef32-495a-9af6-43be75e70570.png)
-"https://imgur.com/zCxyy7o"><img width="400" src="https://i.imgur.com/zCxyy7o.png" title="source: imgur.com" /></a>
+Step 2. The early workout page.
+
+
+![Screen Shot 2022-10-07 at 4 45 03 PM](https://user-images.githubusercontent.com/9807461/196013858-a26f5530-9ee6-45d5-b605-0652052c97f7.png)
+
 
 Step 3. The final product 
 
-<a href="https://imgur.com/Um7ecNI"><img width="400" src="https://i.imgur.com/Um7ecNI.png" title="source: imgur.com" /></a>
+![Screen Shot 2022-10-14 at 12 35 39 PM](https://user-images.githubusercontent.com/9807461/196013864-324c5752-7d27-41f3-9c58-3fede17de7cb.png)
 
-![Screen Shot 2022-10-14 at 12 35 39 PM](https://user-images.githubusercontent.com/9807461/196013361-def0a6b6-53d2-4623-b28e-56e5516d58e7.png)
 
 
 # Technologies Used: 
