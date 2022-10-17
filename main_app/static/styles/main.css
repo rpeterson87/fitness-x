@@ -21,7 +21,7 @@ h3 {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   justify-content: center;
   gap: 50px;
 }
@@ -48,7 +48,7 @@ p {
 
 .card-header {
   justify-content: center;
-  position: relative;
+  position: absolute;
   bottom: 1%;
 }
 
