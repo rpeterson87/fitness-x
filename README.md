@@ -45,6 +45,9 @@ There is a set of starter workouts on the home page. You can use those to start 
 Once you create an account you can start saving workouts. Find a youtube workout video you like and create your workout playlist. 
 Then you can track your exercise data on the videos show page. 
 
+# Link to the live site
+
+https://fitness-x.herokuapp.com/
 
 # Next Steps:
 
