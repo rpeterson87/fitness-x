@@ -18,7 +18,7 @@
 <div class="gallery">
   {% for workout in workout_name %}
   <div class="card">      
-    {% video workout.video '100% x 85%'%} 
+    {% video workout.video '100% x 80%'%} 
     <div class="card-header">
       <a href="{% url 'workouts_detail' workout.pk %}">
         <p class="link ">{{workout.workout_name}}</p>
