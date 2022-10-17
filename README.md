@@ -3,9 +3,9 @@
 
 ## Description
 
-I have been working out for well over 10 years now. I started by using an old mens fitness book and notepad to track my workout data. I then found this guy on youtube by the name of Jeff Cavaliere
-I started watching his youtube videos and later bought his first program. I loved it and I have continued to used his programs to this day. However I also wanted to use some of his web content. He puts out stuff almost daily and alot of it if really good stuff. But I would once again be back to the old note pad to track my data. So I set out to build a website that could do all of the above. 
-At Fitness-X you can store not only your favorite youtube workout videos. You can also store all of your workout data. For now it is pretty straight forward but I would like to build in more features. But more on that later. 
+I have been working out for more than 10 years now. I started by using an old men's fitness book and notepad to track my workout data. I then found this guy on youtube by the name of Jeff Cavaliere.
+I started watching his youtube videos and later bought his first program. I loved it and I have continued to used his programs to this day. However I also wanted to use some of his web content. He puts out stuff almost daily and a lot of it is really good stuff, but I would once again be back to the old note pad to track my data. So I set out to build a website that could do all of the above. 
+At Fitness-X you can store not only your favorite youtube workout videos, you can also store all of your workout data. For now it is pretty straight forward but I would like to build in more features. But more on that later. 
 
 # Screen shots
 
@@ -30,7 +30,7 @@ Step 3. The final product
 
 # Technologies Used: 
 
-To build this site I used Java Script, CSS, HTML, Django, Python and PSQL 
+To build this site I used Java Script, CSS, HTML, Django, Python and PSQL. 
 
 I used JavaScript to handle the DOM manipulation and CSS to style the page. I also used a combination of bootsrap and Bulma for styling the layout and forms. 
 
@@ -42,7 +42,7 @@ PSQL was used to handle the Database side of things.
 # Getting Started:
 
 There is a set of starter workouts on the home page. You can use those to start your workout list.
-Once you create an account you can start creating workouts. Find a youtube workout video you like and create your workout. 
+Once you create an account you can start saving workouts. Find a youtube workout video you like and create your workout playlist. 
 Then you can track your exercise data on the videos show page. 
 
 
