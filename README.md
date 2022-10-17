@@ -49,6 +49,27 @@ Then you can track your exercise data on the videos show page.
 
 https://fitness-x.herokuapp.com/
 
+# User Stories
+
+At Fitness-x our goal is to get you into the best shape possible. By motivating you to stay active and healthy! 
+
+### User Story #1
+
+A user should be able to create an account with a personalized workout page
+
+### User Story #2
+
+A user should be able to create workouts and connect videos from youtube and track their progress
+
+### User Story #3
+
+A user should be able to delete workouts if they feel that they are no longer needed
+
+### User Story #4
+
+A user should have the ability to edit existing workout data. 
+
+
 # Next Steps:
 
 I would like to add a metric tracking system so that you could see your progression. Also I like to add in individual Workout pages for each profile so that it would cut down on the noise and let you focus on just your stuff. I would like to add in more community functions so others could share their progress and success stories along with the youtube API allowing you to just search on the site for the workouts you want.
