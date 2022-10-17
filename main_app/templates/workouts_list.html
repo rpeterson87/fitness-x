@@ -17,6 +17,7 @@
 </form>
 <div class="gallery">
   {% for workout in workout_name %}
+  {% if workout.user_id == user.pk %}
   <div class="card">      
     {% video workout.video '100% x 80%'%} 
     <div class="card-header">
@@ -25,6 +26,7 @@
       </a>
       </div>
     </div>
+    {% endif %}
 	{% empty %}
   <article class="message">
     <div class="message-header">
