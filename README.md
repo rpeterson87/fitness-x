@@ -48,6 +48,4 @@ Then you can track your exercise data on the videos show page.
 
 # Next Steps:
 
-
 I would like to add a metric tracking system so that you could see your progression. Also I like to add in individual Workout pages for each profile so that it would cut down on the noise and let you focus on just your stuff. I would like to add in more community functions so others could share their progress and success stories along with the youtube API allowing you to just search on the site for the workouts you want.
-
